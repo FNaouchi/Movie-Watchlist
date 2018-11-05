@@ -8,11 +8,16 @@ const WatchList = props => {
     <MovieRow key={movie} movie={movie} watched={false} />
   ));
   let length = props.watchedMovies.length;
+  let currentLength = props.filteredUnwatchedMovies.length;
+  let text = length;
+  if (length !== currentLength) {
+    text = `${currentLength} out of ${length}`;
+  }
   return (
     <table className="mt-3 table">
       <thead>
         <tr>
-          <th>Watchlist: {length}</th>
+          <th>Watchlist: {text}</th>
           <SearchBar watched={false} />
         </tr>
       </thead>
